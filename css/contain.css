@@ -1,0 +1,205 @@
+.contain {
+   margin-top: 26px;
+   background-color: #F5F5F5;
+   padding-top: 26px;
+}
+
+/*通知*/
+.contain .notice img {
+   display: block;
+}
+
+/*手机标题*/
+.contain .mobile {
+   height: 58px;
+   line-height: 58px;
+   margin-top: 22px;
+}
+
+.contain .mobile > span {
+   font-size: 22px;
+   color: #333;
+}
+
+.contain .mobile a {
+   color: #333;
+   float: right;
+}
+
+.contain .mobile a span {
+   padding-right: 5px;
+}
+
+.contain .mobile a:hover {
+   color: #ff6700;
+}
+
+.contain .mobile a:hover i {
+   background-color: #ff6700;
+}
+
+.contain .mobile i {
+   background-color: #b0b0b0;
+   border-radius: 50%;
+   font-size: 12px;
+   padding: 5px;
+   color: #fff;
+}
+
+/*手机更多图片*/
+.mobile-more {
+   overflow: hidden;
+}
+
+.mobile-more > a img {
+   display: block;
+   float: left;
+}
+
+.mobile-more ul {
+   float: left;
+   height: 614px;
+   width: 992px;
+}
+
+.mobile-more ul li a {
+   display: block;
+}
+
+.mobile-more ul li {
+   height: 300px;
+   width: 234px;
+   float: left;
+   text-align: center;
+   font-size: 14px;
+   /*padding: 20px 0;*/
+   margin-left: 14px;
+   background-color: #fff;;
+   margin-bottom: 13px;
+}
+
+.mobile-more ul img {
+   width: 160px;
+   height: 160px;
+   display: inline-block;
+
+}
+
+.mobile-more ul .description {
+   font-size: 12px;
+   color: #b0b0b0;
+   margin-top: 6px;
+}
+
+.mobile-more ul h3 {
+   color: #333333;
+   margin-top: 40px;
+}
+
+.mobile-more ul .price {
+   color: #ff6700;
+   margin-top: 18px;
+}
+
+.mobile-more ul .old-price {
+   margin-left: 9px;
+   color: #B0B0B0;
+   text-decoration: line-through;
+}
+
+/*家电*/
+
+.contain .household {
+   height: 58px;
+   line-height: 58px;
+   margin-top: 22px;
+}
+
+.contain .household > span {
+   font-size: 22px;
+   color: #333;
+}
+
+.contain .household span:last-child {
+   float: right;
+}
+
+.contain .household a {
+   font-size: 16px;
+   color: #424242;
+   padding-bottom: 2px;
+}
+
+.contain .household a:hover {
+   color: #ff6700;
+   border-bottom: 2px solid #ff6700;
+}
+
+.contain .household a:last-child {
+   margin-left: 32px;
+}
+
+/*家电更多*/
+.household-more ul {
+   display: flex;
+   height: 300px;
+   width: 1226px;
+   justify-content: space-between;
+
+}
+
+.household-more ul li a {
+   display: block;
+}
+
+.household-more ul li {
+   height: 300px;
+   width: 234px;
+   text-align: center;
+   font-size: 14px;
+   background-color: #fff;;
+   margin-bottom: 13px;
+}
+
+.household-more ul li img {
+   width: 160px;
+   height: 160px;
+   display: inline-block;
+}
+
+.household-more ul .first img{
+   width: 234px;
+   height: 300px;
+}
+
+.household-more ul .description {
+   font-size: 12px;
+   color: #b0b0b0;
+   margin-top: 6px;
+}
+
+.household-more ul h3 {
+   color: #333333;
+   margin-top: 40px;
+}
+
+.household-more ul .price {
+   color: #ff6700;
+   margin-top: 18px;
+}
+
+.household-more ul .old-price {
+   margin-left: 9px;
+   color: #B0B0B0;
+   text-decoration: line-through;
+}
+
+.household-more .household-more-one {
+   margin-bottom: 14px;
+}
+
+.household-more-two div a img{
+   height: 80px;
+   width: 80px;
+   border: 0;
+}
