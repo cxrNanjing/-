@@ -2,6 +2,7 @@
    margin-top: 26px;
    background-color: #F5F5F5;
    padding-top: 26px;
+   padding-bottom: 26px;
 }
 
 /*通知*/
@@ -108,7 +109,6 @@
 }
 
 /*家电*/
-
 .contain .household {
    height: 58px;
    line-height: 58px;
@@ -167,7 +167,7 @@
    display: inline-block;
 }
 
-.household-more ul .first img{
+.household-more ul .first img {
    width: 234px;
    height: 300px;
 }
@@ -198,8 +198,47 @@
    margin-bottom: 14px;
 }
 
-.household-more-two div a img{
+
+.household-more-two div {
+   background-color: #fff;
+   height: 143px;
+}
+
+.household-more-two div a {
+   position: relative;
+   color: #333;
+}
+
+.household-more-two div a p {
+   color: #ff6700;
+}
+
+.household-more-two div a img {
    height: 80px;
    width: 80px;
    border: 0;
+   position: absolute;
+   top: 0;
+   right: 24px;
 }
+
+.household-more-two div span {
+   display: block;
+   width: 94px;
+   margin: 44px 0 0 30px;
+   text-align: left;
+}
+
+.household-more-two div p {
+   text-align: left;
+   margin-left: 30px;
+   margin-top: 13px;
+}
+
+.household-more-two .last {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   background-color: transparent;
+}
+
