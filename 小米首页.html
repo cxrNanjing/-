@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/six.css">
   <link rel="stylesheet" href="css/contain.css">
   <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/fixed.css">
   <style>
     /*公共样式*/
     .wrap {
@@ -64,7 +65,7 @@
       color: #B0B0B0;
       background-color: #424242;
       margin-left: 23px;
-      margin-right: 0px;
+      margin-right: 0;
     }
 
     .message .shop:hover {
@@ -77,10 +78,7 @@
       font-size: 15px;
       margin-right: 4px;
     }
-
   </style>
-
-
 </head>
 <body>
 <div>
@@ -295,7 +293,8 @@
       </ul>
       <div class="series-search">
         <form action="">
-          <input type="text" class="q" placeholder="小米">
+          <label for="q"></label>
+          <input type="text" class="q" placeholder="小米" id="q">
           <div class="search">
             <input type="button" class="btn">
             <i class="iconfont icon-sousuo"></i>
@@ -1109,6 +1108,25 @@
         </p>
       </div>
     </div>
+  </div>
+  <div class="fixed">
+    <div>
+      <a href="#" class="one"></a>
+      <a href="#">
+        <img src="./image/fixed/11.png" alt="">
+        <p>
+          扫码领取新
+        </p>
+        <p>
+          人百元礼包
+        </p>
+      </a>
+    </div>
+    <div><a href="#" class="two"></a></div>
+    <div><a href="#" class="three"></a></div>
+    <div><a href="#" class="four"></a></div>
+    <div><a href="#" class="six"></a></div>
+    <div><a href="#" class="five"></a></div>
   </div>
 </div>
 </body>

@@ -1,0 +1,182 @@
+.fixed {
+   position: fixed;
+   top: 50%;
+   /*transform: translateY(-50%);*/
+   right: 36px;
+   z-index: 300;
+}
+
+.fixed .one {
+   height: 40px;
+   width: 25px;
+   display: block;
+   background: url("../image/fixed/1.png") no-repeat center center;
+   background-size: 20px 20px;
+   border: 1px solid #e0e0e0;
+   margin-top: 1px;
+}
+
+.fixed .one:hover {
+   height: 40px;
+   width: 25px;
+   display: block;
+   background: url("../image/fixed/1-active.png") no-repeat center center;
+   background-size: 20px 20px;
+   border: 1px solid #e0e0e0;
+   margin-top: 1px;
+}
+
+.fixed .two {
+   height: 40px;
+   width: 25px;
+   display: block;
+   background: url("../image/fixed/2.png") no-repeat center center;
+   background-size: 20px 20px;
+   border: 1px solid #e0e0e0;
+   margin-top: 1px;
+}
+
+.fixed .two:hover {
+   height: 40px;
+   width: 25px;
+   display: block;
+   background: url("../image/fixed/2-active.png") no-repeat center center;
+   background-size: 20px 20px;
+   border: 1px solid #e0e0e0;
+   margin-top: 1px;
+}
+
+.fixed .three {
+   height: 40px;
+   width: 25px;
+   display: block;
+   background: url("../image/fixed/3.png") no-repeat center center;
+   background-size: 20px 20px;
+   border: 1px solid #e0e0e0;
+   margin-top: 1px;
+}
+
+.fixed .three:hover {
+   height: 40px;
+   width: 25px;
+   display: block;
+   background: url("../image/fixed/3-active.png") no-repeat center center;
+   background-size: 20px 20px;
+   border: 1px solid #e0e0e0;
+   margin-top: 1px;
+}
+
+.fixed .four {
+   height: 40px;
+   width: 25px;
+   display: block;
+   background: url("../image/fixed/4.png") no-repeat center center;
+   background-size: 20px 20px;
+   border: 1px solid #e0e0e0;
+   margin-top: 1px;
+}
+
+.fixed .four:hover {
+   height: 40px;
+   width: 25px;
+   display: block;
+   background: url("../image/fixed/4-active.png") no-repeat center center;
+   background-size: 20px 20px;
+   border: 1px solid #e0e0e0;
+   margin-top: 1px;
+}
+
+.fixed .six {
+   height: 40px;
+   width: 25px;
+   display: block;
+   background: url("../image/fixed/6.png") no-repeat center center;
+   background-size: 20px 20px;
+   border: 1px solid #e0e0e0;
+   margin-top: 1px;
+}
+
+.fixed .six:hover {
+   height: 40px;
+   width: 25px;
+   display: block;
+   background: url("../image/fixed/6-active.png") no-repeat center center;
+   background-size: 20px 20px;
+   border: 1px solid #e0e0e0;
+   margin-top: 1px;
+}
+
+.fixed .five {
+   height: 40px;
+   width: 25px;
+   display: block;
+   background: url("../image/fixed/5.png") no-repeat center center;
+   background-size: 20px 20px;
+   border: 1px solid #e0e0e0;
+   margin-top: 16px;
+}
+
+.fixed .five:hover {
+   height: 40px;
+   width: 25px;
+   display: block;
+   background: url("../image/fixed/5-active.png") no-repeat center center;
+   background-size: 20px 20px;
+   border: 1px solid #e0e0e0;
+   margin-top: 16px;
+}
+
+.fixed .one + a img {
+   width: 100px;
+   height: 100px;
+   display: block;
+   margin: 10px;
+}
+
+.fixed .one + a {
+   width: 120px;
+   height: 186px;
+   display: none;
+   text-align: center;
+   color: #757575;
+   font-size: 14px;
+   background-color: white;
+   position: absolute;
+   top: 0;
+   left: -132px;
+   border: 1px solid #e0e0e0;
+}
+
+.fixed .one + a::after {
+   content: "";
+   position: absolute;
+   height: 0;
+   width: 0;
+   /*background-color: red;*/
+   display: block;
+   border-top: 10px solid transparent;
+   border-left: 10px solid white;
+   border-bottom: 10px solid transparent;
+   border-right: 10px solid transparent;
+   top: 8px;
+   right: -20px;
+}
+
+.fixed .one + a::before {
+   content: "";
+   position: absolute;
+   height: 0;
+   width: 0;
+   /*background-color: red;*/
+   display: block;
+   border-top: 12px solid transparent;
+   border-left: 12px solid #e0e0e0;
+   border-bottom: 12px solid transparent;
+   border-right: 12px solid transparent;
+   top: 6px;
+   right: -24px;
+}
+
+.fixed .one:hover + a {
+   display: block;
+}
