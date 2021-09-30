@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="jquery.js"></script>
+  <style>
+    #audio {
+      display: none;
+    }
+
+    #player {
+      margin: 10px auto;
+      border: 1px solid #cccccc;
+      padding: 10px;
+      width: 500px;
+      background-color: #a85eeb;
+      display: flex;
+      border-radius: 2px;
+    }
+
+    #player .start {
+      height: 26px;
+      width: 19px;
+      text-align: center;
+      background: url("./image/music/player.a628799e.png") -29px -1px;
+    }
+
+    #player .progress {
+      height: 2px;
+      width: 350px;
+      background-color: #e0e0e0;
+      margin-top: 12px;
+      margin-left: 10px;
+      border-radius: 1px;
+    }
+
+    #player .go-progress {
+      height: 2px;
+      width: 40%;
+      border-radius: 1px;
+      background-color: red;
+      position: relative;
+    }
+
+    #player .go-progress:after {
+      content: "";
+      height: 10px;
+      width: 10px;
+      background-color: red;
+      border-radius: 5px;
+      position: absolute;
+      top: -4px;
+      right: 0;
+    }
+
+    #player .duration {
+      line-height: 26px;
+      margin-left: 12px;
+      color: #e0e0e0;
+    }
+
+    #player .duration .time1, .time2 {
+      padding: 0 2px;
+    }
+
+    .hover:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<audio id="audio" src="./audio/C400004XPSHg1kXw4V.m4a" controls></audio>
+<div id="player">
+  <div class="start hover"></div>
+  <div class="progress hover">
+    <div class="go-progress"></div>
+  </div>
+  <div class="duration">
+    <span class="time1">02:33</span>
+    <span>/</span>
+    <span class="time2">03:55</span>
+  </div>
+</div>
+<script>
+</script>
+</body>
+</html>
