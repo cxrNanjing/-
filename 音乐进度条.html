@@ -13,17 +13,18 @@
       margin: 10px auto;
       border: 1px solid #cccccc;
       padding: 10px;
-      width: 500px;
+      width: 510px;
       background-color: #a85eeb;
       display: flex;
       border-radius: 2px;
+      position: relative;
     }
 
     #player .start {
       height: 26px;
       width: 19px;
       text-align: center;
-      background: url("./image/music/player.a628799e.png") -29px -1px;
+      background: url("./image/music/player.a628799e.png") -2px -1px;
     }
 
     #player .progress {
@@ -37,7 +38,7 @@
 
     #player .go-progress {
       height: 2px;
-      width: 40%;
+      width: 0;
       border-radius: 1px;
       background-color: red;
       position: relative;
@@ -51,7 +52,7 @@
       border-radius: 5px;
       position: absolute;
       top: -4px;
-      right: 0;
+      right: -10px;
     }
 
     #player .duration {
@@ -60,8 +61,8 @@
       color: #e0e0e0;
     }
 
-    #player .duration .time1, .time2 {
-      padding: 0 2px;
+    #player .duration .time1-m, .time1-s, .time2-m, .time2-s {
+      /*padding: 0 2px;*/
     }
 
     .hover:hover {
@@ -77,12 +78,97 @@
     <div class="go-progress"></div>
   </div>
   <div class="duration">
-    <span class="time1">02:33</span>
+    <span class="time1-m">00</span>
+    <span>:</span>
+    <span class="time1-s">00</span>
     <span>/</span>
-    <span class="time2">03:55</span>
+    <span class="time2-m"></span>
+    <span>:</span>
+    <span class="time2-s"></span>
   </div>
 </div>
 <script>
+  let audio = document.getElementById('audio');
+
+  /**
+   * 获取时间的min和s
+   * @param time
+   * @returns {{S: number, M: number}}
+   */
+  function getMS(time) {
+    let M = Math.floor(time / 60);
+    let S = Math.floor(time % 60);
+    return {M, S}
+  }
+
+  /**
+   * 补零方法
+   * @param num
+   * @returns {string}
+   */
+  function reZero(num) {
+    return ("" + num).length > 1 ? num : '0' + num
+  }
+
+
+  /**
+   * 获取音乐的总时间
+   */
+  audio.oncanplay = function () {
+    let time = this.duration;
+    //设置总共音乐总总时间
+    $('.time2-m').text(reZero(getMS(time).M));
+    $('.time2-s').text(reZero(getMS(time).S));
+  };
+
+  //点击播放
+  $('.start').click(function () {
+    if (audio.paused) {
+      //改变点击按钮
+      $('.start').css("background", " url(\"./image/music/player.a628799e.png\") -29px -1px");
+      audio.play();
+      go()
+    } else {
+      audio.pause();
+      clearInterval(time1);
+      time1 = null;
+      //改变点击按钮
+      $('.start').css("background", " url(\"./image/music/player.a628799e.png\") -2px -1px");
+    }
+  });
+
+  let time1;
+
+  function go() {
+    time1 = setInterval(() => {
+      //设置当前时间
+      console.log(1);
+      let {currentTime, duration} = audio;
+      let percent = currentTime / duration * 100 + "%";
+      //跟新进度条
+      $('#player .go-progress').css("width", percent);
+      $('.time1-m').text(reZero(getMS(currentTime).M));
+      $('.time1-s').text(reZero(getMS(currentTime).S));
+
+    }, 500)
+  }
+
+  // 获取进度条
+  $('.progress').click(function (e) {
+    let {duration} = audio;
+    // 宽度
+    let x = e.offsetX;
+    console.log(x);
+    // 计算比例
+    let percent = x / ($('.progress').width());
+    //计算时间
+    $('#player .go-progress').css("width", percent * 100 + "%");
+    let time = percent * duration;
+    $('.time1-m').text(reZero(getMS(time).M));
+    $('.time1-s').text(reZero(getMS(time).S));
+    audio.currentTime = time
+  })
+
 </script>
 </body>
 </html>
