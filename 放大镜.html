@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="reset.css">
+  <style>
+    .picture {
+      margin-top: 30px;
+      margin-left: 30px;
+      position: relative;
+    }
+
+    .middle {
+      height: 450px;
+      width: 450px;
+      border: 1px solid #ccc;
+      position: relative;
+    }
+
+    .middle .mask {
+      /*height: 304px;*/
+      /*width: 304px;*/
+      border: 1px solid #ccc;
+      background-color: orange;
+      opacity: 0.3;
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: move;
+      display: none;
+    }
+
+    .small {
+      display: flex;
+      width: 450px;
+      justify-content: center;
+      margin-top: 5px;
+    }
+
+    .small li {
+      height: 54px;
+      width: 54px;
+      margin-left: 12px;
+      border: 2px solid transparent;
+    }
+
+    .small .active {
+      border: 2px solid red;
+    }
+
+    .big {
+      height: 540px;
+      width: 540px;
+      border: 1px solid #ccc;
+      position: absolute;
+      background-image: url("./iphone/1-big.jpg");
+      top: 0;
+      left: 452px;
+      display: none;
+    }
+
+  </style>
+
+
+</head>
+<body>
+<div class="picture">
+  <div class="middle">
+    <div class="mask"></div>
+  </div>
+  <ul class="small">
+  </ul>
+  <div class="big">
+  </div>
+</div>
+<script src="jquery.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.js"></script>
+<script>
+  //定义图片
+  let img = [
+    {
+      small: './iphone/1-small.jpg',
+      middle: './iphone/1-middle.jpg',
+      big: "./iphone/1-big.jpg"
+    },
+    {
+      small: './iphone/2-small.jpg',
+      middle: './iphone/2-middle.jpg',
+      big: "./iphone/2-big.jpg"
+    },
+    {
+      small: './iphone/3-small.jpg',
+      middle: './iphone/3-middle.jpg',
+      big: "./iphone/3-big.jpg"
+    },
+    {
+      small: './iphone/4-small.jpg',
+      middle: './iphone/4-middle.jpg',
+      big: "./iphone/4-big.jpg"
+    },
+    {
+      small: './iphone/5-small.jpg',
+      middle: './iphone/5-middle.jpg',
+      big: "./iphone/5-big.jpg"
+    }
+  ];
+
+  //获取small图片并添加
+  let small = img.map(item => item.small);
+  small.forEach((item, index) => {
+    let li = $('<li />');
+    let img = $('<img />');
+    img.attr("src", item);
+    //默认第一个添加active
+    if (index === 0) {
+      li.addClass('active')
+    }
+    $('.small').append(li.append(img))
+  });
+  // 显示 中图 默认显示第一张
+  let middleImg = $('<img />');
+  middleImg.attr("src", img[0].middle);
+  $('.middle').append(middleImg);
+  //悬浮small
+  $('.small').on('mouseenter', "li", function () {
+    // 显示边框
+    $(this).addClass('active').siblings("li").removeClass('active');
+    //显示对应的middle
+    $('.middle img').attr("src", img[$(this).index()].middle);
+    //显示对应的big
+    $('.big').css("background-image", `url("${img[$(this).index()].big}")`)
+  });
+
+  let middle_left = $('.middle').offset().top;
+  let middle_top = $('.middle').offset().left;
+  let big_width = $('.big').innerWidth();
+  let big_height = $('.big').innerHeight();
+  let middle_width = $('.middle').innerWidth();
+  let middle_height = $('.middle').innerHeight();
+  let mask_height = big_height / 800 * middle_height;
+  let mask_width = big_width / 800 * middle_width;
+
+  $('.mask').css({
+    width: mask_width + "px",
+    height: mask_height + "px"
+  });
+
+  let maxLeft = $('.middle').innerWidth() - $(".mask").innerWidth() - 2;
+  let maxTop = $('.middle').innerHeight() - $(".mask").innerHeight() - 2;
+
+  $('.middle').mouseenter(function () {
+    $(".mask").show();
+    $(".big").show()
+  });
+
+  $('.middle').mouseleave(function () {
+    $(".mask").hide();
+    $(".big").hide()
+  });
+  //设置mask位置
+  $('.middle').mousemove(function (e) {
+    //设置mask的位置
+    let x = e.pageX - middle_left;
+    let y = e.pageY - middle_top;
+    let left = x - mask_width / 2;
+    let top = y - mask_height / 2;
+    if (left < 0) {
+      left = 0
+    }
+    if (top < 0) {
+      top = 0
+    }
+    if (left > maxLeft) {
+      left = maxLeft
+    }
+    if (top > maxTop) {
+      top = maxTop
+    }
+    $('.mask').css({
+      left: left + "px",
+      top: top + "px"
+    });
+
+    let big_posX = left * (800 - big_width) / (middle_width - mask_width) + "px";
+    let big_posY = top * (800 - big_height) / (middle_height - mask_height) + "px";
+    $(".big").css({
+      backgroundPosition: `-${big_posX} -${big_posY} `
+    })
+  })
+
+</script>
+
+</body>
+</html>
